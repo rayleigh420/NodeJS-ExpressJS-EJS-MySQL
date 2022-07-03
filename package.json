@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-express-basic",
+  "version": "1.0.0",
+  "description": "nodejs basic with express framwork",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "basic",
+    "express"
+  ],
+  "author": "rayleigh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
