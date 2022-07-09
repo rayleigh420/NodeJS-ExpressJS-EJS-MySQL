@@ -7,6 +7,10 @@ import connection from './configs/connectDB'
 const app = express()
 const port = process.env.PORT || 8080;
 
+// get data easy way, you should config like that
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Config view engine
 configViewEngine(app);
 
