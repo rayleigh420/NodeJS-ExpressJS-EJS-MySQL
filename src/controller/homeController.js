@@ -1,20 +1,17 @@
-import connection from '../configs/connectDB'
+import { resolveShowConfigPath } from '@babel/core/lib/config/files';
+import pool from '../configs/connectDB'
 
-let getHomepage = (req, res) => {
-    let data = [];
-    connection.query(
-        'select * from `users` ',
-        function (err, results, fields) {
-            console.log('>>> check my sql')
-            console.log(results);
-            data = results.map((row) => { return row });
+let getHomepage = async (req, res) => {
+    const [rows, fields] = await pool.execute('SELECT * FROM users');
+    return res.render('test/test.ejs', { dataUser: rows });
+}
 
-            return res.render('test/test.ejs', { dataUser: data });
-        }
-    );
-
+let getDetailPage = async (req, res) => {
+    let id = req.params.id
+    let [user] = await pool.execute('SELECT * FROM users where id = ?', [id])
+    return res.send(JSON.stringify(user))
 }
 
 module.exports = {
-    getHomepage
+    getHomepage, getDetailPage
 }
