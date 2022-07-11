@@ -13,7 +13,7 @@ const initWebRoute = (app) => {
     router.post('/update-user', homeController.updateUser)
 
     router.get('/about', (req, res) => {
-        res.send('I am rayleigh!')
+        res.send('Hello every one, welcome to my nodejs')
     })
 
     return app.use('/', router)

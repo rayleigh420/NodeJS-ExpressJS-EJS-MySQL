@@ -1,8 +1,8 @@
 import express from 'express'
 import configViewEngine from './configs/viewEngine'
 import initWebRoute from './route/web'
+import initAPIRoute from './route/api'
 require('dotenv').config()
-import connection from './configs/connectDB'
 
 const app = express()
 const port = process.env.PORT || 8080;
@@ -16,6 +16,9 @@ configViewEngine(app);
 
 // Config router
 initWebRoute(app);
+
+// Config API route
+initAPIRoute(app);
 
 app.listen(port, () => {
     console.log(`Nodejs is running in port ${port}...`)

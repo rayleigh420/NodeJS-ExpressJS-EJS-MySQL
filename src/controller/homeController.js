@@ -1,4 +1,3 @@
-import { resolveShowConfigPath } from '@babel/core/lib/config/files';
 import pool from '../configs/connectDB'
 
 let getHomepage = async (req, res) => {
@@ -36,7 +35,6 @@ let updateUser = async (req, res) => {
     await pool.execute('update users set firstName = ?, lastName = ?, email = ?, address = ? where id = ?', [firstName, lastName, email, address, id])
     return res.redirect('/')
 }
-
 
 module.exports = {
     getHomepage, getDetailPage, createUser, deleteUser, editUser, updateUser

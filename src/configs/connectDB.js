@@ -7,7 +7,7 @@ import mysql from 'mysql2/promise'
 //     database: 'nodejs-basic-express'
 // });
 
-console.log(">>> Creating pool....")
+console.log(">>> Creating pool and connect to database....")
 
 const pool = mysql.createPool({
     host: 'localhost',
